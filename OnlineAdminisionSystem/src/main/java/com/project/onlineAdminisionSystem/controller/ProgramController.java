@@ -8,10 +8,12 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +23,7 @@ import com.project.onlineAdminisionSystem.entity.Program;
 import com.project.onlineAdminisionSystem.service.ICollegeService;
 import com.project.onlineAdminisionSystem.service.IProgramService;
 
-
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping("/program")
 
@@ -71,6 +73,13 @@ public Optional<Program> getProgramByName(@PathVariable("programName") String na
 	return service.getProgramDetailsByName(name);
 }
 
+@GetMapping("/getProgramById/{programId}")
+public Optional<Program> getProgramById(@PathVariable("programId") int programId) {
+	logger.info("getProgramById controller started");
+	logger.info("getProgramById controller ended");
+	return service.getProgramById(programId);
+}
+
 @GetMapping("/getProgramByCollegeName/{collegeName}")
 public List<Program> getProgramByCollegeName(@PathVariable("collegeName") String collegeName) {
 	logger.info("getProgramByCollegeName controller started");
@@ -79,7 +88,7 @@ public List<Program> getProgramByCollegeName(@PathVariable("collegeName") String
 }
 
 @GetMapping("/getProgrameByCollegeId/{id}")
-public List<Program> getProgramById(@PathVariable("id") int id) {
+public List<Program> getProgrameByCollegeId(@PathVariable("id") int id) {
 	logger.info("getProgramById controller started");
 	logger.info("getProgrambyId controller ended");
 	return service.getProgramsByCollegeId(id);
@@ -103,6 +112,14 @@ public List<College> getCollegeByProgramName(@PathVariable("programName") String
 List<College> college = clgService.getCollegeByProgramName(id);
 return college;
 }
-
+@PutMapping("/updateProgram/{programId}")
+public Program updateProgram(@PathVariable("programId")int id,@RequestBody Program program) {
+	
+	
+	return service.updateProgram(program);
+	
+	
+	
+}
 
 }

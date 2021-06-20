@@ -16,7 +16,7 @@ public interface IProgramService {
 	public void deleteByprogramId(int programId);
 	public void deleteProgramByName(String programName);
 	public Optional<Program> getProgramById(int programId);
-	public Program  updateProgramStatus(Program program);
+	public Program  updateProgram(Program program);
 
 	List<Program> viewAllProgramDetails();
 	

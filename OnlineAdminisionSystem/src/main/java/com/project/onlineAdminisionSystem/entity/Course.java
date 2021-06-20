@@ -30,11 +30,9 @@ public class Course
 @OneToMany(cascade = { CascadeType.ALL })
 @JoinColumn(name="CourseId")
 	private List< Branch> branches;
-@NotNull(message="startDate cannot be null")
+
 private String startDate;
-@NotNull(message="endDate cannot be null")
 private String endDate;
-@NotNull(message="courseFees cannot be null")
 private long courseFees;
 
 

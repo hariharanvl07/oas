@@ -74,17 +74,6 @@ private ICollegeService service;
 		return repo.findById(programId);
 	}
 
-	@Override
-	public Program updateProgramStatus(Program program) {
-		Program program1 = repo.findById(program.getProgramId()).orElseThrow();
-		program1.setDegreeOffered(program.getDegreeOffered());
-		program1.setProgramDescription(program.getProgramDescription());
-		program1.setProgramDuration(program.getProgramDuration());
-		program1.setProgramEligibility(program.getProgramEligibility());
-		program1.setProgramName(program.getProgramName());
-		
-		return repo.save(program1);
-	}
 
 
 
@@ -109,6 +98,20 @@ private ICollegeService service;
 	College college = service.getCollegeDetailsByName(name).orElseThrow();
 	List<Program> program = repo.findByCollegeId(college.getCollegeRegId());
 		return program;
+	}
+
+
+	@Override
+	public Program updateProgram(Program program) {
+		
+		Program program1 = repo.findById(program.getProgramId()).orElseThrow();
+		program1.setDegreeOffered(program.getDegreeOffered());
+		program1.setProgramDescription(program.getProgramDescription());
+		program1.setProgramDuration(program.getProgramDuration());
+		program1.setProgramEligibility(program.getProgramEligibility());
+		program1.setProgramName(program.getProgramName());
+		
+		return repo.save(program1);
 	}
 
 }
