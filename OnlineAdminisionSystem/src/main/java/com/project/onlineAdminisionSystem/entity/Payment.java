@@ -15,8 +15,8 @@ public class Payment {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int paymentId;
 	
-	@OneToOne(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "applicationId")
+	
+	@OneToOne
 	private Application applicationId;
 	@NotNull(message ="The amount should not be null")
 	private double paymentAmount;

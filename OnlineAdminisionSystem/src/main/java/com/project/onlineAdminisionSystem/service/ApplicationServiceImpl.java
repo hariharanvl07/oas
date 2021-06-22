@@ -109,6 +109,12 @@ public class ApplicationServiceImpl implements IApplicationService {
 		return repo.findByapplicationStatus(status);
 	}
 
+	@Override
+	public List<Application> getAllApplicationByStudentId(int id) {
+	
+		return repo.finApplicationByStudenyId(id);
+	}
+
 	
 	
 

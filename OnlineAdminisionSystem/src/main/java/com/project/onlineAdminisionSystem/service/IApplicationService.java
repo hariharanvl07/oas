@@ -22,5 +22,6 @@ public interface IApplicationService
 	Application getApplicationDetailsByEmailId(String emailId);
 	public Application viewAllApplicationDetailsByMail(String mail);
 	List<Application> viewAllApplicationDetails(String status);
+	public List<Application> getAllApplicationByStudentId(int id);
 	
 }

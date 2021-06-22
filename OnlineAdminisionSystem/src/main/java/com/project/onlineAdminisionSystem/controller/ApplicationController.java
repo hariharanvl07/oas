@@ -86,12 +86,32 @@ public class ApplicationController {
 		
 		return service.viewAllApplicationDetails(status);
 	}
+	@GetMapping("/getAllApplicationByStudentId/{StudentId}")
+	public List<Application> getAllApplicationByStudentId(@PathVariable("StudentId") int id){
+		
+		logger.info("getAllApplicationByStudentId service started");
+		logger.info("getAllApplicationByStudentId service ended");
+		
+		return service.getAllApplicationByStudentId(id);
+	}
 	@PutMapping("/updateApplicationStatus/{applicationId}")
 	public Application updateApplication(@PathVariable("applicationId")int id,@RequestBody Application application) {
 		
 		logger.info("updateApplicationStatus service started");
 		Application sts= service.getApplicationById(id);
 		sts.setApplicationStatus(application.getApplicationStatus());
+		logger.info("viewAllApplicationDetails service ended");
+		
+		return service.addApplication(application);
+	}
+	
+	@PutMapping("/addpaymentModule/{applicationId}")
+	public Application addpaymentModule(@PathVariable("applicationId")int id,@RequestBody Application application) {
+		
+		logger.info("addPayment service started");
+		Application sts= service.getApplicationById(id);
+		sts.setApplicationStatus(application.getApplicationStatus());
+		sts.setPayment(application.getPayment());
 		logger.info("viewAllApplicationDetails service ended");
 		
 		return service.addApplication(application);

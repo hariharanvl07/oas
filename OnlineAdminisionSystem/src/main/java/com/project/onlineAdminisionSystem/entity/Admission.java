@@ -1,5 +1,6 @@
 package com.project.onlineAdminisionSystem.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Admission
 	private String emailId;
 	@OneToOne
 	private Application applicationId;
+	
 	private String admissionStatus;//Confirm after payement done;
 	@OneToOne
 	private College college;
@@ -28,9 +30,17 @@ public class Admission
 	private University university;
 	
 	private String year;
+	
+	
 
 	
 	
+	public Application getApplicationId() {
+		return applicationId;
+	}
+	public void setApplicationId(Application applicationId) {
+		this.applicationId = applicationId;
+	}
 	public University getUniversity() {
 		return university;
 	}
