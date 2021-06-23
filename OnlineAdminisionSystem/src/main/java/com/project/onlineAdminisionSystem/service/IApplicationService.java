@@ -17,7 +17,7 @@ public interface IApplicationService
 	
 	public Application getApplicationById(int applicationId);
 	
-	public int  updateApplicationStatus(Application app);
+	public Application  updateApplicationStatus(Application app);
 	
 	Application getApplicationDetailsByEmailId(String emailId);
 	public Application viewAllApplicationDetailsByMail(String mail);

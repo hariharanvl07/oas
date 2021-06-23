@@ -16,7 +16,7 @@ public class Payment {
 	private int paymentId;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = { CascadeType.ALL })
 	private Application applicationId;
 	@NotNull(message ="The amount should not be null")
 	private double paymentAmount;

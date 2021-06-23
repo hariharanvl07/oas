@@ -100,20 +100,11 @@ public class ApplicationController {
 		logger.info("updateApplicationStatus service started");
 		Application sts= service.getApplicationById(id);
 		sts.setApplicationStatus(application.getApplicationStatus());
-		logger.info("viewAllApplicationDetails service ended");
+		sts.setPayment(application.getPayment());
+		logger.info("updateApplicationStatus service ended");
 		
-		return service.addApplication(application);
+		return service.updateApplicationStatus(application);
 	}
 	
-	@PutMapping("/addpaymentModule/{applicationId}")
-	public Application addpaymentModule(@PathVariable("applicationId")int id,@RequestBody Application application) {
-		
-		logger.info("addPayment service started");
-		Application sts= service.getApplicationById(id);
-		sts.setApplicationStatus(application.getApplicationStatus());
-		sts.setPayment(application.getPayment());
-		logger.info("viewAllApplicationDetails service ended");
-		
-		return service.addApplication(application);
-	}
+
 }	

@@ -36,60 +36,60 @@ public class Application
 	private String emailId;
 	//private ProgramScheduled schedule;
 	private String applicationStatus;//Applied/ScheduleForInterview/InterViewCompleted/ApplicationAccepted/ApplicationRejected
-	private LocalDate dateOfInterview;
+	private String dateOfInterview;
 	private String applicantInterviewFeedback;
 	
 	
-	@OneToOne
-	private College college;
-	@OneToOne
-	private University university;
-	@OneToOne
-	private Branch branch;
-	@OneToOne
-	private Course course;
-	@OneToOne
-	private Program program;
+	
+	private String college;
+	
+	private String university;
+
+	private String branch;
+	
+	private String course;
+	
+	private String program;
 	
 	@OneToOne(cascade = { CascadeType.ALL })
 	private Payment payment;
 	
 	
-
+	
 	public Payment getPayment() {
 		return payment;
 	}
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}
-	public College getCollege() {
+	public String getCollege() {
 		return college;
 	}
-	public void setCollege(College college) {
+	public void setCollege(String college) {
 		this.college = college;
 	}
-	public University getUniversity() {
+	public String getUniversity() {
 		return university;
 	}
-	public void setUniversity(University university) {
+	public void setUniversity(String university) {
 		this.university = university;
 	}
-	public Branch getBranch() {
+	public String getBranch() {
 		return branch;
 	}
-	public void setBranch(Branch branch) {
+	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	public Course getCourse() {
+	public String getCourse() {
 		return course;
 	}
-	public void setCourse(Course course) {
+	public void setCourse(String course) {
 		this.course = course;
 	}
-	public Program getProgram() {
+	public String getProgram() {
 		return program;
 	}
-	public void setProgram(Program program) {
+	public void setProgram(String program) {
 		this.program = program;
 	}
 	public Integer getApplicationId() {
@@ -144,10 +144,10 @@ public class Application
 	public void setApplicationStatus(String applicationStatus) {
 		this.applicationStatus = applicationStatus;
 	}
-	public LocalDate getDateOfInterview() {
+	public String getDateOfInterview() {
 		return dateOfInterview;
 	}
-	public void setDateOfInterview(LocalDate dateOfInterview) {
+	public void setDateOfInterview(String dateOfInterview) {
 		this.dateOfInterview = dateOfInterview;
 	}
 	public String getApplicantInterviewFeedback() {
@@ -183,8 +183,8 @@ public Application(@NotNull(message = "Applicant Name cannot be null") String ap
 		@NotNull(message = "HighestQualification cannot be null") String highestQualification,
 		@NotNull(message = "Final percentage cannot be null") double finalYearPercentage, String goals,
 		@NotNull(message = "Email Id cannot be null") String emailId, String applicationStatus,
-		LocalDate dateOfInterview, String applicantInterviewFeedback, College college, University university,
-		Branch branch, Course course, Program program, Payment payment) {
+		String dateOfInterview, String applicantInterviewFeedback, String college, String university,
+		String branch, String course, String program, Payment payment) {
 	super();
 	this.applicantFullName = applicantFullName;
 	this.dateOfBirth = dateOfBirth;
@@ -203,9 +203,9 @@ public Application(@NotNull(message = "Applicant Name cannot be null") String ap
 	this.payment = payment;
 }
 public Application(Integer applicationId, String applicantFullName, String dateOfBirth, String highestQualification,
-		double finalYearPercentage, String goals, String emailId, String applicationStatus, LocalDate dateOfInterview,
-		String applicantInterviewFeedback, College college, University university, Branch branch, Course course,
-		Program program) {
+		double finalYearPercentage, String goals, String emailId, String applicationStatus, String dateOfInterview,
+		String applicantInterviewFeedback, String college, String university, String branch, String course,
+		String program, Payment payment) {
 	super();
 	this.applicationId = applicationId;
 	this.applicantFullName = applicantFullName;
@@ -222,7 +222,9 @@ public Application(Integer applicationId, String applicantFullName, String dateO
 	this.branch = branch;
 	this.course = course;
 	this.program = program;
+	this.payment = payment;
 }
+
 	
 	
 }

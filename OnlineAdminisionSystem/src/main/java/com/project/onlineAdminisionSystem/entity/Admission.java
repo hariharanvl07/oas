@@ -14,20 +14,20 @@ public class Admission
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int admissionId;
 	private String emailId;
-	@OneToOne
-	private Application applicationId;
+	
+	private int applicationId;
 	
 	private String admissionStatus;//Confirm after payement done;
-	@OneToOne
-	private College college;
-	@OneToOne
-	private Program program;
-	@OneToOne
-	private Course course;
-	@OneToOne
-	private Branch branch;
-	@OneToOne
-	private University university;
+	
+	private String college;
+
+	private String program;
+
+	private String course;
+
+	private String branch;
+
+	private String university;
 	
 	private String year;
 	
@@ -35,16 +35,16 @@ public class Admission
 
 	
 	
-	public Application getApplicationId() {
+	public int getApplicationId() {
 		return applicationId;
 	}
-	public void setApplicationId(Application applicationId) {
+	public void setApplicationId(int applicationId) {
 		this.applicationId = applicationId;
 	}
-	public University getUniversity() {
+	public String getUniversity() {
 		return university;
 	}
-	public void setUniversity(University university) {
+	public void setUniversity(String university) {
 		this.university = university;
 	}
 	public int getAdmissionId() {
@@ -66,22 +66,22 @@ public class Admission
 	public void setAdmissionStatus(String admissionStatus) {
 		this.admissionStatus = admissionStatus;
 	}
-	public College getCollege() {
+	public String getCollege() {
 		return college;
 	}
-	public void setCollege(College college) {
+	public void setCollege(String college) {
 		this.college = college;
 	}
-	public Program getProgram() {
+	public String getProgram() {
 		return program;
 	}
-	public void setProgram(Program program) {
+	public void setProgram(String program) {
 		this.program = program;
 	}
-	public Course getCourse() {
+	public String getCourse() {
 		return course;
 	}
-	public void setCourse(Course course) {
+	public void setCourse(String course) {
 		this.course = course;
 	}
 	public String getYear() {
@@ -90,15 +90,15 @@ public class Admission
 	public void setYear(String year) {
 		this.year = year;
 	}
-	public Branch getBranch() {
+	public String getBranch() {
 		return branch;
 	}
-	public void setBranch(Branch branch) {
+	public void setBranch(String branch) {
 		this.branch = branch;
 	}
 
-	public Admission(String emailId, String admissionStatus, College college, Program program,
-			Course course, Branch branch, University university, String year,Application applicationId) {
+	public Admission(String emailId, String admissionStatus, String college, String program,
+			String course, String branch, String university, String year,int applicationId) {
 		super();
 		this.emailId = emailId;
 		this.applicationId = applicationId;
