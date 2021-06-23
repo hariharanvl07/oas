@@ -12,6 +12,8 @@ interface UserDetailsService {
 	UserDetails updateUser(UserDetails user);
 	Optional<UserDetails> getUserById(int id);	
 	
+
+	
 	
 
 }
